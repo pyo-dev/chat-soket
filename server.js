@@ -42,7 +42,7 @@ io.on("connection", (socket) => {
 			reqData.date = date;
 			// 같은 방 사용자들에게 메시지 전달
 			io.to(reqData.roomNo).emit("getSendMessage", reqData);
-
+			console.log(`메시지 전송 ---- ${reqData.roomNo}방 ${reqData}`);
 			// 클라이언트에게 성공 응답
 			callback({ success: true, data: reqData });
 		} catch (error) {
